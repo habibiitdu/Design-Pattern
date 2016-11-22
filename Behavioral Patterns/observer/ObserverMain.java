@@ -2,13 +2,25 @@ package com.designPattern.observer;
 
 public class ObserverMain {
 	public static void main (String args[]){
-		Observable abCompnay = new ABCompany(); 		
-		Observable psCompany = new PSCompany(); 
-		Observer newYorkTimes = new NewYorkTimes();
-		newYorkTimes.addOvervable(abCompnay);
+		Subscriber abCompany = new Subscriber("AB Company"); 
+		Subscriber psCompany = new Subscriber("PS Company"); 
+		Subscriber rdCompany = new Subscriber("RD Company");
+		
+		Company newYorkTimes = new Company("NY Times"); 
+		Company facebook = new Company("Facebook"); 
+		
+		newYorkTimes.addOvervable(abCompany);
 		newYorkTimes.addOvervable(psCompany);
-		newYorkTimes.addNews("Explotion in Pakistan");
+		newYorkTimes.addOvervable(rdCompany);
+		facebook.addOvervable(rdCompany);
+		facebook.addOvervable(psCompany);
+		
+		newYorkTimes.addNews("US Election");
+		facebook.addNews("Facebook University launched");
+		
 		newYorkTimes.removeOvervable(psCompany);
-		newYorkTimes.addNews("Torture on rohingya in mayanmar");
+		
+		newYorkTimes.addNews("US Presidential Debate");
+		facebook.addNews("Facebook UI Changed");
 	}
 }

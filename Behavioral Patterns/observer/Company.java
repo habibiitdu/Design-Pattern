@@ -2,20 +2,25 @@ package com.designPattern.observer;
 
 import java.util.ArrayList;
 
-public class NewYorkTimes implements Observer{
+public class Company implements Observer{
 	public ArrayList<Observable> subscribers = new ArrayList<Observable>(); 
 	public String news; 
+	public String name; 
+	
+	public Company(String name){
+		this.name = name; 
+	}
 
 	@Override
 	public void addOvervable(Observable observeable) {
 		subscribers.add(observeable); 
-		System.out.println("Subscriber added : "+ observeable.getName());
+		System.out.println(this.name +" Subscriber added : "+ observeable.getName());
 	}
 
 	@Override
 	public void removeOvervable(Observable observeable) {
 		subscribers.remove(observeable); 
-		System.out.println("Subscriber removed : "+ observeable.getName());
+		System.out.println(this.name +  "Subscriber removed : "+ observeable.getName());
 	}
 
 	@Override
